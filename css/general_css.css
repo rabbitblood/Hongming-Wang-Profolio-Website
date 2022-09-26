@@ -199,6 +199,10 @@ main {
 		opacity: 0;
 	}
 	100% {
+		-webkit-transform: translateY(-700%) rotate(360deg);
+		-moz-transform: translateY(-700%) rotate(360deg);
+		-ms-transform: translateY(-700%) rotate(360deg);
+		-o-transform: translateY(-700%) rotate(360deg);
 		transform: translateY(-700%) rotate(360deg);
 		box-shadow: #fefbd8 0px 0px 20px 5px;
 		opacity: 0;
