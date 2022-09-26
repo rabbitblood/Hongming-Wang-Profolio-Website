@@ -5,7 +5,7 @@ html *{
 
 #title {
 	position:fixed;
-	font-size: 15vw;
+	font-size: 10vw;
 	left:50vw;
 	top:50vh;
 	transform:translate(-50%,-50%);
