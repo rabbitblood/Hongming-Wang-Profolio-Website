@@ -2,11 +2,28 @@
 const background = document.getElementById("background_animation_container");
 const mainContent = document.getElementById("main");
 const title = document.getElementById("title");
+const header = document.getElementById("header");
 
 let viewportHeight = window.innerHeight;
 let viewportWidth = window.innerWidth;
 let currentScroll = 0;
 let bodyHeight = document.documentElement.scrollHeight - viewportHeight;
+
+init();
+
+function init(){
+
+    if(this.window.location.pathname == "/htmls/index.html"){
+        scrollChangeHeaderOpacity();
+        mainContent.style.marginTop ="100vh";
+    }
+    else
+    {
+        mainContent.style.marginTop ="50px";
+    }
+
+
+}
 
 window.addEventListener("scroll", function () {
     viewportHeight = window.innerHeight;
@@ -14,17 +31,21 @@ window.addEventListener("scroll", function () {
     bodyHeight = document.documentElement.scrollHeight - viewportHeight;
 
     currentScroll = this.scrollY;
-    console.log(this.scroll.innerHeight);
 
     scrollChangeBackgroundColor();
-    scrollChangeMainContentOpacity();
-    scrollChangeTitleOpacity();
+    if(title != null){
+
+        scrollChangeTitleOpacity();
+    }
+    if(this.window.location.pathname == "/htmls/index.html"){
+        scrollChangeHeaderOpacity();
+        scrollChangeMainContentOpacity();
+    }
 })
 
 
 function scrollChangeBackgroundColor() {
     var scrollPercent = currentScroll / bodyHeight;
-    console.log(bodyHeight +", "+currentScroll);
     var scrollPercentRound = Math.round(scrollPercent * 100);
 
     background.style.backgroundColor = `rgba(${54 - scrollPercentRound/2},
@@ -45,7 +66,8 @@ function scrollChangeMainContentOpacity(){
     mainContent.style.opacity = opacityPercent;
 }
 
-function scrollChangeTitleOpacity() {
+function scrollChangeHeaderOpacity(){
+    var finalOpacityRatio = 0.9;
     var calculatedScrollValue = 0;
     if(currentScroll > viewportHeight){
         calculatedScrollValue = viewportHeight;
@@ -53,7 +75,30 @@ function scrollChangeTitleOpacity() {
     else{
         calculatedScrollValue = currentScroll;
     }
+    var opacityPercent = (calculatedScrollValue/viewportHeight) * finalOpacityRatio;
+    header.style.opacity = opacityPercent * 2;
+
+    if(opacityPercent == 0){
+        header.style.pointerEvents = "none"
+    }
+    else{
+        header.style.pointerEvents = "all"
+    }
+}
+
+function scrollChangeTitleOpacity() {
+    var calculatedScrollValue = 0;
+    if(currentScroll > viewportHeight){
+        calculatedScrollValue = viewportHeight;
+    }
+    else if(currentScroll < 0){
+        calculatedScrollValue = 0;
+    }
+    else{
+        calculatedScrollValue = currentScroll;
+    }
     var opacityPercent = viewportHeight/calculatedScrollValue/2 -1;
+
     title.style.opacity = opacityPercent;
 }
 

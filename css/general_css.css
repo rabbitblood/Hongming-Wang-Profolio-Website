@@ -1,19 +1,26 @@
 :root{
-	--menu_height:300px;
+	--menu_height:calc(300px);
 	--nav_dont_size:2.5rem;
 }
 
 html{
 	box-sizing: border-box;
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
-*{
+*,*:before,*:after{
 	box-sizing: inherit;
 }
 
 html *{
 	margin:0px;
 	padding:0px;
+}
+
+body{
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 #title {
@@ -39,6 +46,8 @@ html *{
 #header_flex_wrapper{
 	display: flex;
 	justify-content: space-between;
+	max-width: 1024px;
+	margin: auto;
 }
 
 #logo_Wrapper{
@@ -48,11 +57,6 @@ html *{
 
 img{
 	width: 100%;
-}
-
-header, main{
-	max-width: 1024px;
-	margin: auto;
 }
 
 header{
@@ -92,17 +96,18 @@ nav ul li{
 
 main {
 	position: relative;
-	margin-top: 100vh;
+	margin: auto;
 	margin-bottom: 20px;
 	width: 95%;
-	min-height: 95vh;
 	background: #36486b;
-	border-radius: 50px;
-	box-shadow: rgb(5, 5, 50,0.5) 0px 0px 20px 10px;
-	padding: 20px 0px;
+	border-radius: 20px;
+	box-shadow: rgb(5, 5, 20,0.5) 0px 0px 50px 30px;
+	max-width: 1024px;
+	flex: 1;
 }
 h1,h2{
 	text-align: center;
+	margin-bottom: 10px;
 }
 
 section{
@@ -110,10 +115,35 @@ section{
 	background-color: rgb(147, 162, 223);
 	margin: 20px auto;
 	border-radius: 10px;
+	padding: 20px 10px;
 }
 
-p{
+article{
+	border: #36486b solid 2px;
 	padding: 10px;
+	border-radius: 10px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	margin: 10px 0;
+}
+
+figure{
+	max-width: 95%;
+	margin: 20px auto;
+	border: black solid 2px;
+	border-radius: 20px;
+	padding: 10px;
+}
+
+figure figcaption{
+	margin: auto;
+	text-align: center;
+	color: antiquewhite;
+}
+
+figure img{
+	mask: figure;
 }
 
 p::before{
@@ -147,8 +177,7 @@ footer{
 }
 
 #contacts img{
-	max-width: 90%;
-	max-height: 50px;
+	max-width: 50px;
 	margin: auto;
 }
 
