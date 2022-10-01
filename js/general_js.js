@@ -13,7 +13,7 @@ init();
 
 function init(){
 
-    if(this.window.location.pathname == "/htmls/index.html"){
+    if(window.location.href.indexOf("/htmls/index.html") > -1){
         scrollChangeHeaderOpacity();
         mainContent.style.marginTop ="100vh";
     }
@@ -40,6 +40,7 @@ window.addEventListener("scroll", function () {
     if(this.window.location.pathname == "/htmls/index.html"){
         scrollChangeHeaderOpacity();
         scrollChangeMainContentOpacity();
+        mainContent.style.opacity = 0.9;
     }
 })
 
