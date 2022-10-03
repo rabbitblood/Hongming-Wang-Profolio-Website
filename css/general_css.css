@@ -310,7 +310,7 @@ pre{
 	margin: auto;
 }
 
-#contacts_text{
+.contacts_text{
 	color: aliceblue;
 	margin: auto;
 	text-align: center;
@@ -325,7 +325,7 @@ pre{
 		--nav_font_size:0.8rem;
 		--title_font_size: 90px;
 	}
-	#contacts_text{
+	.contacts_text{
 		font-size: 2rem;
 	}
 	header{
