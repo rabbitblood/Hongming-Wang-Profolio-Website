@@ -1,10 +1,12 @@
 :root{
 	--menu_height:calc(300px);
-	--nav_font_size:2.5rem;
+	--nav_font_size:2rem;
 	--link_color: rgb(88, 3, 3);
+	--title_font_size: 50px;
 }
 
 html{
+	font-family: silkscreen;
 	box-sizing: border-box;
 	background-color: rgba(0, 0, 0, 0.5);
 }
@@ -49,11 +51,12 @@ main, header, footer,#title{
 #title {
 	position:fixed;
 	width: 100%;
-	font-size: 5vh;
+	font-size: var(--title_font_size);
 	left:50vw;
 	top:50vh;
 	transform:translate(-50%,-50%);
 	text-align: center;
+	text-shadow: white 0px 0px 20px;
 }
 
 #menu_btn
@@ -169,11 +172,9 @@ section{
 .product_box{
 	display: flex;
 	flex-direction: column;
-
 }
 
 .product_box > *{
-	margin: 10px auto;
 	background-color: rgb(98, 114, 185);
 }
 
@@ -186,13 +187,15 @@ section{
 }
 
 article{
+	width: 90%;
+	margin: 10px auto;
 	border: #36486b solid 2px;
 	padding: 10px;
 	border-radius: 10px;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	margin: 10px 0;
+
 }
 
 figure{
@@ -261,6 +264,10 @@ pre{
     border-radius: 10px;
     background-color: rgb(238, 172, 50);
 }
+
+.no_flex_extend{
+	align-self:flex-end;
+}
 #contacts{
 	display: flex;
 	justify-content:center;
@@ -296,7 +303,8 @@ pre{
 @media (min-width: 600px){
 	:root{
 		--menu_height:calc(80px);
-		--nav_font_size:1rem;
+		--nav_font_size:0.9rem;
+		--title_font_size: 90px;
 	}
 	#contacts_text{
 		font-size: 2rem;
@@ -326,7 +334,8 @@ pre{
 @media (min-width: 800px){
 	:root{
 		--menu_height:calc(80px);
-		--nav_font_size:1.4rem;
+		--nav_font_size:1.2rem;
+		--title_font_size: 120px;
 	}
 	.product_box{
 		flex-wrap: wrap;
@@ -345,7 +354,8 @@ pre{
 @media (min-width: 1024px)
 {
 	:root{
-		--nav_font_size:2rem;
+		--nav_font_size:1.6rem;
+		--title_font_size: 150px;
 	}
 
 	#logo_Wrapper{
@@ -375,6 +385,9 @@ pre{
 	}
 }
 @media (min-width: 1900px){
+	:root{
+		--title_font_size: 200px;
+	}
 	.product_box > *{
 		width: 24%;
 	}
@@ -401,4 +414,11 @@ pre{
 	100%{
 		height: var(--menu_height);
 	}
+}
+
+/*-----------------------------------font section below-----------------------------------------*/
+
+@font-face {
+	font-family: silkscreen;
+	src: url(./../font/Silkscreen/Silkscreen-Regular.ttf);
 }
