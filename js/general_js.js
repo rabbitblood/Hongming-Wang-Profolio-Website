@@ -37,7 +37,7 @@ window.addEventListener("scroll", function () {
 
         scrollChangeTitleOpacity();
     }
-    if(this.window.location.pathname == "/htmls/index.html"){
+    if(window.location.href.indexOf("/htmls/index.html") > -1){
         scrollChangeHeaderOpacity();
         scrollChangeMainContentOpacity();
         mainContent.style.opacity = 0.9;
